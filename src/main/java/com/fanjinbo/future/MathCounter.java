@@ -45,10 +45,13 @@ public class MathCounter implements Callable<Integer>{
                 else {
                     if (search(file))
                         count++;
+                    System.out.println(file.getPath());
+                    System.out.println("1:    " + count);
                 }
                 for (Future<Integer> result : results){
                     try {
                         count += result.get();
+                        System.out.println("2:    " + count);
                     }catch (ExecutionException e){
                         e.printStackTrace();
                     }
